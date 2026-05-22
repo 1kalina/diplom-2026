@@ -1,0 +1,371 @@
+:root {
+    --coffee-dark: #4a3b32;
+    --coffee-medium: #8c6d58;
+    --coffee-light: #f5f0eb;
+    --accent-orange: #d97736;
+    --text-color: #333333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfbfa;
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+}
+
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--coffee-light);
+    padding-bottom: 20px;
+}
+
+.logo-area h1 {
+    margin: 0;
+    color: var(--coffee-dark);
+    font-size: 32px;
+}
+
+.logo-area p {
+    margin: 5px 0 0 0;
+    color: var(--coffee-medium);
+}
+
+/* Візуальна картка клубу лояльності */
+.loyalty-card {
+    background: linear-gradient(135deg, #59473c 0%, #2e241f 100%);
+    color: white;
+    width: 320px;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.club-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.tier-badge {
+    background-color: var(--accent-orange);
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.discount-display {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.next-tier-text {
+    font-size: 11px;
+    color: #ccc;
+    margin-bottom: 6px;
+}
+
+.progress-bar {
+    background-color: rgba(255,255,255,0.2);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background-color: #fff;
+    width: 0%;
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+/* Каталог меню */
+.catalog-section h2, .order-panel h2 {
+    color: var(--coffee-dark);
+    margin-top: 0;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid var(--coffee-light);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.badge-sale {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e66464;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.price-block {
+    margin: 10px 0 15px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 13px;
+}
+
+.current-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--coffee-dark);
+}
+
+/* Панелі керування та авторизації */
+.auth-panel {
+    background: #faf8f5;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #eaddcd;
+}
+
+.admin-panel {
+    background: #f1ede7;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #dcd6cd;
+}
+
+.auth-panel h3, .admin-panel h3 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--coffee-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-panel input[type="text"],
+.admin-panel input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #dcd6cd;
+    border-radius: 6px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #dcd6cd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.welcome-msg {
+    font-size: 14px;
+    color: var(--coffee-medium);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-msg a {
+    color: var(--accent-orange);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Кошик */
+.order-panel {
+    background: white;
+    border: 1px solid var(--coffee-light);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    align-self: start;
+}
+
+.cart-items-container {
+    min-height: 80px;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--coffee-light);
+}
+
+.cart-item-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.cart-item-info small {
+    color: #e66464;
+}
+
+.empty-cart-msg {
+    color: #999;
+    text-align: center;
+    font-size: 14px;
+}
+
+.promo-block {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.promo-block input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Розрахунок чеку */
+.summary {
+    background-color: var(--coffee-light);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.summary-line.discount {
+    color: #2e7d32;
+    font-weight: 500;
+}
+
+.summary-line.promo {
+    color: #e65100;
+    font-weight: 500;
+}
+
+.summary-line.total {
+    border-top: 1px solid #dcd6cd;
+    padding-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--coffee-dark);
+    margin-bottom: 0;
+}
+
+/* Кнопки */
+button {
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-main {
+    width: 100%;
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-main:hover {
+    background-color: #c0632b;
+}
+
+.btn-secondary {
+    background-color: var(--coffee-medium);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: var(--coffee-dark);
+}
+
+.btn-delete {
+    background-color: #e66464;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.btn-delete:hover {
+    background-color: #d14949;
+}
+
+.product-card button:not(.btn-delete) {
+    background-color: white;
+    border: 1px solid var(--accent-orange);
+    color: var(--accent-orange);
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.product-card button:not(.btn-delete):hover {
+    background-color: var(--accent-orange);
+    color: white;
+}
+
+@media (max-width: 850px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaCup — Кав'ярня з системою лояльності</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Шапка сайту та Картка лояльності -->
+    <header>
+        <div class="logo-area">
+            <h1>☕ AromaCup</h1>
+            <p>Твій затишний простір свіжої кави</p>
+        </div>
+        
+        <div class="loyalty-card" id="loyalty-card-view">
+            <div class="card-header">
+                <span class="club-title">AROMA CLUB</span>
+                <span id="tier-name" class="tier-badge">Гість</span>
+            </div>
+            <div class="card-body">
+                <div class="discount-display">Особиста знижка: <strong id="user-discount-val">0%</strong></div>
+                <div id="next-tier-info" class="next-tier-text">Введіть телефон для активації дисконту</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основний контент: Каталог меню -->
+    <main class="catalog-section">
+        <h2>Наше Меню</h2>
+        <div class="catalog" id="catalog"></div>
+    </main>
+
+    <!-- Бічна панель замовлення та адміністрування -->
+    <aside class="order-panel">
+        
+        <!-- МОДУЛЬ 1: Панель ідентифікації клієнта -->
+        <div class="auth-panel">
+            <h3>Ідентифікація клієнта</h3>
+            <div class="input-group" id="auth-form">
+                <input type="tel" id="phone-input" placeholder="+380991234567" value="+380">
+                <button type="button" class="btn-secondary" onclick="findClientByPhone()">Пошук</button>
+            </div>
+            <div id="client-welcome-msg" class="welcome-msg" style="display: none;">
+                Вітаємо, <strong id="client-name">Гість</strong>! [<a href="#" onclick="logoutClient()">Вийти</a>]
+            </div>
+        </div>
+
+        <!-- МОДУЛЬ 2: Панель керування меню (Адмінка) -->
+        <div class="admin-panel">
+            <h3>Керування меню кав'ярні</h3>
+            <form id="add-product-form" onsubmit="addNewProduct(event)">
+                <input type="text" id="new-item-name" placeholder="Назва (напр., Флет Вайт)" required>
+                <div class="input-group" style="margin-top: 8px;">
+                    <input type="number" id="new-item-price" placeholder="Ціна, ₴" min="1" required>
+                    <button type="submit" class="btn-secondary">Додати</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- МОДУЛЬ 3: Кошик замовлення -->
+        <h2>Твоє замовлення</h2>
+        <div id="cart-items" class="cart-items-container">
+            <p class="empty-cart-msg">Кошик порожній. Додай щось смачненьке!</p>
+        </div>
+
+        <!-- Промокод -->
+        <div class="promo-block">
+            <input type="text" id="promo-input" placeholder="Промокод (COFFEE10)">
+            <button type="button" class="btn-secondary" onclick="applyPromo()">Застосувати</button>
+        </div>
+
+        <!-- Фінансовий розрахунок -->
+        <div class="summary">
+            <div class="summary-line">Сума: <span id="subtotal">0 ₴</span></div>
+            <div class="summary-line discount" id="discount-row">
+                Кавовий дисконт: <span id="discount-amount">-0 ₴</span>
+            </div>
+            <div class="summary-line promo" id="promo-row">
+                Знижка за кодом: <span id="promo-amount">-0 ₴</span>
+            </div>
+            <div class="summary-line total">
+                До сплати: <span id="total-price">0 ₴</span>
+            </div>
+        </div>
+        
+        <button type="button" class="btn-main" onclick="checkout()">Смакувати замовлення</button>
+    </aside>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
